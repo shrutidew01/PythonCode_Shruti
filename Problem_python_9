@@ -1,0 +1,5 @@
+# Create a dictionary with alphabet keys and corresponding ASCII values
+ascii_dict = {chr(i): i for i in range(97, 123)}
+
+# Print the dictionary
+print(ascii_dict)
