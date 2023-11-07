@@ -1,0 +1,24 @@
+
+def calculate_telephone_bill(num_calls):
+    minimum_charge = 200  # Minimum charge for up to 100 calls
+    charge_per_call_101_150 = 0.60  # Rs. 0.60 per call for calls 101-150
+    charge_per_call_151_200 = 0.50  # Rs. 0.50 per call for calls 151-200
+    charge_per_call_201_and_beyond = 0.40  # Rs. 0.40 per call for calls beyond 200
+
+    if num_calls <= 100:
+        total_charge = minimum_charge
+    elif num_calls <= 150:
+        total_charge = minimum_charge + (num_calls - 100) * charge_per_call_101_150
+    elif num_calls <= 200:
+        total_charge = minimum_charge + 50 * charge_per_call_101_150 + (num_calls - 150) * charge_per_call_151_200
+    else:
+        total_charge = minimum_charge + 50 * charge_per_call_101_150 + 50 * charge_per_call_151_200 + (num_calls - 200) * charge_per_call_201_and_beyond
+
+    return total_charge
+
+# Prompt the user to input the number of calls
+num_calls = int(input("Enter the number of calls: "))
+
+# Calculate the monthly telephone bill and print the result
+monthly_bill = calculate_telephone_bill(num_calls)
+print("Monthly Telephone Bill: Rs.", monthly_bill)
