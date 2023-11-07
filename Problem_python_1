@@ -1,0 +1,28 @@
+def compute_net_amount(transaction_log):
+    # Split the input transaction log by spaces to get individual transactions
+    transactions = transaction_log.split()
+
+    # Initialize the net amount to 0
+    net_amount = 0
+
+    # Process each transaction in the log
+    for transaction in transactions:
+        # Split each transaction into its type (D for deposit or W for withdrawal) and amount
+        transaction_parts = transaction.split(':')
+        transaction_type = transaction_parts[0]
+        amount = int(transaction_parts[1])
+
+        # Update the net amount based on the transaction type
+        if transaction_type == 'D':
+            net_amount += amount
+        elif transaction_type == 'W':
+            net_amount -= amount
+
+    return net_amount
+
+# Read the transaction log from console input
+log_message = input("Enter the transaction log: ")
+
+# Compute the net amount and print the result
+result = compute_net_amount(log_message)
+print(result)
